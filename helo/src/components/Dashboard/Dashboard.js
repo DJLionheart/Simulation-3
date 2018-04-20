@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios'
 
 
 class Dashboard extends Component {
@@ -10,6 +11,16 @@ class Dashboard extends Component {
             posts: []
         }
     }
+
+    // componentDidMount() {
+    //     axios.get('/api/posts').then( res => {
+    //         console.log(res.data);
+            
+    //         this.setState({
+    //             posts: res.data
+    //         })
+    //     })
+    // }
 
     handleInput(e) {
         const target = e.target;
@@ -27,9 +38,9 @@ class Dashboard extends Component {
         const postList = posts.map( (post, i) => {
             return(
                 <div className="post" key={ i }>
-                    <h2>{ post.title }</h2>
+                    <h2>{ post.posttitle }</h2>
                     <img src={ post.author.profilepic } alt="profile"/>
-                    <h3>{ post.author.username }</h3>
+                    <h3>{ post.author }</h3>
 
 
                 </div>
@@ -43,6 +54,8 @@ class Dashboard extends Component {
 
                 <label >My Posts</label>
                 <input name="userposts" onChange={ e => this.handleInput(e) } type="checkbox" checked={ userposts } />
+
+                { posts }
 
             </div>
         )
