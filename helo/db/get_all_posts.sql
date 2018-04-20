@@ -1,0 +1,1 @@
+select * from users JOIN posts on users.username = posts.author;

@@ -1,11 +1,14 @@
 {
   "name": "helo",
   "version": "0.1.0",
+  "main": "server/index.js",
+  "proxy": "http://localhost:4025",
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
+    "massive": "^4.7.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-redux": "^5.0.7",

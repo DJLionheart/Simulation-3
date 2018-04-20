@@ -1,33 +1,39 @@
 import React, { Component } from 'react';
-import { HashRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+// import { connect } from 'react-redux'
 
 import './App.css';
 
-import Auth from './components/Auth/Auth';
-import Dashboard from './components/Dashboard/Dashboard';
-import Form from './components/Form/Form';
-import Post from './components/Post/Post';
 import Nav from './components/Nav/Nav';
 
 
-// import routes from './route';
+import routes from './route';
 
+// const conditionalRender = withRouter(props => {
+//   {
+//     this.props.location.pathname === '/'
+//       ? null
+//       : (<Nav/>)
+//   }
+// })
 
 
 class App extends Component {
   render() {
     return (
-      <HashRouter>
-        <div className="App">
-          <Auth/>
-          <Dashboard/>
-          <Form/>
-          <Post/>
-          <Nav/>
+      <div className="App">
+        {
+          this.props.location.pathname === '/'
+            ? null
+            : <Nav/>
+        }
+        
+        { routes }
+          
+          
         </div>
-      </HashRouter>
     );
   }
 }
 
-export default App;
+export default withRouter(App);
